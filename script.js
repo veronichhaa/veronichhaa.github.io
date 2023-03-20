@@ -1,3 +1,6 @@
+let form = document.querySelector('form');
+let resultObj = {}
+
 let tests = [
     {   name: 'УЗИ брюшной полости',
         result: 'Визуализируется гипоэхогенный узел в головке поджелудочной железы 2,6 см в диаметре. Вирсунгов проток дистальнее узла расширен до 4 мм в диаметре, на уровне узла не прослеживается. Желчный пузырь увеличен, внепеченочные желчные протоки – 12 мм в диаметре.',
@@ -174,8 +177,6 @@ function check(){
     console.log(runnedTests);
 }
 
-
-
 function addTeststoHTML(){
    let el = document.querySelector(".researches");
    for (let test of tests){
@@ -246,6 +247,31 @@ function treat(){
     document.querySelector('.result').hidden=false;
     document.querySelector('.ball').innerHTML = `Ваш балл: <span style="font-weight: bolder">${countPoints(selectedTreatment)}</span>`;
     addResultsToHTML();
+    sendToTelegram(resultObj);
+}
+
+function sendToTelegram(resultObject){
+    let resultText =`   Группа: ${resultObject.group},
+${resultObject.name} ${resultObject.surname},
+Набранный балл: <b>${resultObject.point}</b>`;
+    const TOKEN = '5681291247:AAHWUbCwPGNhh5ylkL_OsNaZP8qigGl2n3w';
+    const CHAT_ID = '-1001890792495';
+    const URI = `https://api.telegram.org/bot${TOKEN}/sendMessage`
+    axios.post(URI, {
+                chat_id: CHAT_ID,
+                parse_mode: 'html',
+                text: resultText
+    }).then((res)=>{
+        console.log(res.status);
+    }).catch((err)=>{
+        if(err.message) console.log('Message error: '+err.message);
+        if(err.request) console.log('Request error: '+err.request);
+        if(err.response) console.log('Response error: '+err.response);
+    })
+
+
+
+    console.log(resultText)
 }
 
 function countPoints(selectedTreatment){
@@ -256,6 +282,7 @@ function countPoints(selectedTreatment){
     console.log(point);
     point+=selectedTreatment.getPoint();
     console.log(point);
+    resultObj.point = point;
     return point;
 }
 
@@ -273,8 +300,13 @@ function disableInputs(){
 }
 
 function start(){
-    document.querySelector(".sign-in").hidden=true;
-    document.querySelector(".container").hidden=false;
+    if(form.group.value && form.name.value && form.surname.value){
+        document.querySelector(".sign-in").hidden=true;
+        document.querySelector(".container").hidden=false;
+        resultObj.group = form.group.value;
+        resultObj.name = form.name.value;
+        resultObj.surname = form.surname.value;
+    }
 }
 
 function finishResearch(){

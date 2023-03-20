@@ -14,8 +14,9 @@
 <body>
 <div class="sign-in">
     <form class="mb-3">
-        <input type="text" class="form-control" placeholder="Имя" id="exampleFormControlInput1">
-        <input type="text" class="form-control" placeholder="Фамилия" id="exampleFormControlInput2">
+        <input type="text" name="group" class="form-control" placeholder="Номер группы">
+        <input type="text" name="name" class="form-control" placeholder="Имя">
+        <input type="text" name="surname" class="form-control" placeholder="Фамилия">
         <a class="btn btn-outline-info" onclick="start()">НАЧАТЬ</a>
     </form>
 </div>
@@ -81,4 +82,5 @@
 </div>
 </body>
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </html>
