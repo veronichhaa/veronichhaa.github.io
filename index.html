@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="resources/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap Bundle JS (jsDelivr CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="sign-in">
+    <form class="mb-3">
+        <input type="text" class="form-control" placeholder="Имя" id="exampleFormControlInput1">
+        <input type="text" class="form-control" placeholder="Фамилия" id="exampleFormControlInput2">
+        <a class="btn btn-outline-info" onclick="start()">НАЧАТЬ</a>
+    </form>
+</div>
+<div class="container" hidden>
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">Задача № 1</h5>
+            <p class="card-text">
+                Пациент 65-ти лет предъявляет жалобы на незначительные тупые боли в эпигастрии, темное окрашивание мочи, кожный зуд, появившиеся 3 дня назад, на фоне полного благополучия. 15 лет назад перенес вирусный гепатит «В». Курит в течение 40 лет, до 10 сигарет в день.
+            </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">При объективном исследовании: желтушность кожи и склер, периферическое лимфоузлы не изменены, печень у края реберной дуги, в правом подреберье определяется гладкое, безболезненное, эластичное образование 5х4 см; При ректальном исследовании - кал ахоличен. Мочеиспускание без особенностей. Запоры в течение 10 лет, после погрешностей в диете.</li>
+            <li class="list-group-item">Общий анализ крови - без патологии</li>
+            <li class="list-group-item">Общий анализ мочи - положительна реакция на желчные пигменты</li>
+            <li class="list-group-item">Биохимический анализ крови:
+                <ul>
+                    - общий белок - 76 г/л;<br>
+                    - Oбщий билирубин - 80 мколь/л;<br>
+                    - связанный - 55 мколь/л;<br>
+                    - мочевина - 5 ммоль/л;<br>
+                    - АСТ – 30 Ед/л;<br>
+                    - АЛТ – 35 Ед/л;<br>
+                    - щелочная фосфатаза – 580 Ед/л;<br>
+                    - -амилаза -50 Ед/л;<br>
+                    - холестерин - 12 ммоль/л.
+                </ul></li>
+        </ul>
+    </div>
+    <div class="research half">
+        <h5>Выберите необходимые исследования:</h5>
+        <div class="researches">
+        </div>
+        <button class="btn btn-outline-info"  onclick="check()">Выполнить отмеченные исследования</button>
+        <button id="finishResearchBtn" class="btn btn-outline-success" disabled onclick="finishResearch()">Завершить обследование</button>
+    </div>
+    <div class="treatment half" hidden>
+        <h5>Выберите тактику лечения:</h5>
+        <div class="treatments">
+        </div>
+        <button class="btn btn-outline-danger" onclick="treat()">ЗАКОНЧИТЬ</button>
+    </div>
+    <div class="runnedResearches half">
+        <ul class="card list-group list-group-flush" id="runnedTests">
+            <li class="list-group-item">Результаты исследований</li>
+        </ul>
+    </div>
+</div>
+<div class="result" hidden>
+    <div class="res">
+        <h4>Результат</h4>
+        <div style="color: red">Максимальный балл: 10</div>
+        <div class="ball"></div>
+    </div>
+    <div class="runnedResearches half">
+        <ul class="card list-group list-group-flush" id="runnedTestsResults">
+            <li class="list-group-item"><h5>Проведенные исследования</h5></li>
+        </ul>
+        <ul class="card list-group list-group-flush" id="treatmentResults">
+            <li class="list-group-item"><h5>Выбранная тактика лечения</h5></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="script.js"></script>
+</html>
