@@ -271,7 +271,7 @@ ${resultObject.name} ${resultObject.surname},
 
 
 
-    console.log(resultText)
+        // console.log(resultText)
 }
 
 function countPoints(selectedTreatment){
@@ -283,7 +283,8 @@ function countPoints(selectedTreatment){
     point+=selectedTreatment.getPoint();
     console.log(point);
     resultObj.point = point;
-    return point;
+
+    return point.toFixed(2);
 }
 
 function disableInputs(){
