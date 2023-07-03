@@ -1,15 +1,3 @@
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyDXdw2bcTvOvvyfFsTa1AlJBX9MucqoEbc",
-    authDomain: "test-6acf4.firebaseapp.com",
-    projectId: "test-6acf4",
-    storageBucket: "test-6acf4.appspot.com",
-    messagingSenderId: "461088805065",
-    appId: "1:461088805065:web:e01cce84f7521747007d18"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
 let form = document.querySelector('form');
 let resultObj = {}
