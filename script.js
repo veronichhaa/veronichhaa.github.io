@@ -304,7 +304,7 @@ function disableInputs(){
 }
 
 function start(){
-    if(form.group.value && form.name.value && form.surname.value){
+    if(form.name.value && form.surname.value){
         document.querySelector(".sign-in").hidden=true;
         document.querySelector(".container").hidden=false;
    //     resultObj.group = form.group.value;
