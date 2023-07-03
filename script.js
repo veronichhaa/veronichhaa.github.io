@@ -307,7 +307,7 @@ function start(){
     if(form.group.value && form.name.value && form.surname.value){
         document.querySelector(".sign-in").hidden=true;
         document.querySelector(".container").hidden=false;
-        resultObj.group = form.group.value;
+   //     resultObj.group = form.group.value;
         resultObj.name = form.name.value;
         resultObj.surname = form.surname.value;
     }
